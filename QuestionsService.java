@@ -1,7 +1,8 @@
+import java.util.Scanner;
 public class QuestionsService {
 
     Question[] question = new Question[5];
-
+    String selection[] = new String[5];
     public QuestionsService() {
         question[0] = new Question(1, "What is the best programing language?", "Java", "Python", "JavaScript", "PHP",
                 "Java");
@@ -16,8 +17,21 @@ public class QuestionsService {
     } 
 
     public void displayQuestions() {
+        int i = 0;
         for (Question q : question) {
-            System.out.println(q);
+            System.out.println("Question no. "+q.getId());
+            System.out.println(q.getQuestion());
+            System.out.println("i) "+q.getOpt1());
+            System.out.println("ii) "+q.getOpt2());
+            System.out.println("iii) "+q.getOpt3());
+            System.out.println("iv) "+q.getOpt4());
+            Scanner sc = new Scanner(System.in);
+            selection[i] = sc.nextLine();
+            i++;
+        }
+
+        for(String s : selection){
+            System.out.println(s);
         }
     }
 }
